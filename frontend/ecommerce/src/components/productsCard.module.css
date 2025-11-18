@@ -1,0 +1,55 @@
+/* Styles for ProductCard.jsx */
+.productCard {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.productImage {
+  height: 14rem; /* 224px */
+  background-color: #e5e7eb;
+  background-size: cover;
+  background-position: center;
+}
+
+.productInfo {
+  padding: 20px;
+}
+
+.productName {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #1a202c;
+  margin-bottom: 8px;
+  /* Truncate long names */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productPrice {
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+/* These styles are no longer needed */
+/*
+.rating {
+  font-size: 0.875rem; 
+  color: #6b7280; 
+  margin-bottom: 12px;
+}
+
+.ratingText {
+  margin-left: 8px;
+}
+*/

@@ -1,0 +1,25 @@
+/* Styles for Message.jsx */
+.message {
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-weight: 500;
+}
+
+.info {
+  background-color: #eef2ff; /* Blue-100 */
+  color: #3b82f6; /* Blue-600 */
+  border: 1px solid #3b82f6;
+}
+
+.danger {
+  background-color: #fef2f2; /* Red-100 */
+  color: #ef4444; /* Red-500 */
+  border: 1px solid #ef4444;
+}
+
+.success {
+  background-color: #f0fdf4; /* Green-100 */
+  color: #22c55e; /* Green-500 */
+  border: 1px solid #22c55e;
+}
