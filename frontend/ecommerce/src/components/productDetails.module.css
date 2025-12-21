@@ -1,0 +1,131 @@
+.page {
+  width: 100%;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #667eea;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.media {
+  border-radius: 16px;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.info {
+  border-radius: 16px;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  padding: 22px;
+}
+
+.title {
+  margin: 0 0 12px;
+  color: #111827;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.price {
+  color: #667eea;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.rating {
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.description {
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.primaryButton {
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(102, 126, 234, 0.55);
+  background: #667eea;
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(102, 126, 234, 0.28);
+}
+
+.secondaryButton {
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondaryButton:hover {
+  border-color: rgba(102, 126, 234, 0.55);
+}
+
+.stock {
+  margin: 0;
+  color: #6b7280;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

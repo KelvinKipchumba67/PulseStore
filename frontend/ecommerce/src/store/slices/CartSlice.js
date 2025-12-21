@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // Helper function to get cart from localStorage
+const cartFromStorage = localStorage.getItem('cart')
+  ? JSON.parse(localStorage.getItem('cart'))
+  : null;
+
 const initialState = {
-  cartItems: localStorage.getItem('cart')
-    ? JSON.parse(localStorage.getItem('cart')).cartItems
-    : [],
-  // We'll add shipping/payment info later
+  cartItems: cartFromStorage?.cartItems || [],
+  shippingAddress: cartFromStorage?.shippingAddress || {
+    address: '',
+    city: '',
+    postalCode: '',
+    country: '',
+  },
+  paymentMethod: cartFromStorage?.paymentMethod || 'PayPal',
 };
 
 // Helper function to save cart to localStorage
@@ -44,11 +52,26 @@ const cartSlice = createSlice({
       state.cartItems = state.cartItems.filter((x) => x._id !== action.payload);
       updateCart(state);
     },
+
+    saveShippingAddress: (state, action) => {
+      state.shippingAddress = action.payload;
+      updateCart(state);
+    },
+
+    savePaymentMethod: (state, action) => {
+      state.paymentMethod = action.payload;
+      updateCart(state);
+    },
+
+    clearCart: (state) => {
+      state.cartItems = [];
+      updateCart(state);
+    },
   },
 });
 
 // Export the actions
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, saveShippingAddress, savePaymentMethod, clearCart } = cartSlice.actions;
 
 // Export the reducer
 export default cartSlice.reducer;

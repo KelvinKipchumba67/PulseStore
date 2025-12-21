@@ -9,6 +9,8 @@ const CartScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { userInfo } = useSelector((state) => state.auth);
+
   // Get the cart state from Redux
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -25,7 +27,11 @@ const CartScreen = () => {
 
   // Handler for proceeding to checkout
   const checkoutHandler = () => {
-    navigate('/login?redirect=/shipping'); // We'll build this next
+    if (userInfo) {
+      navigate('/shipping');
+    } else {
+      navigate('/login?redirect=/shipping');
+    }
   };
 
   return (

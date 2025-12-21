@@ -13,23 +13,33 @@ import './index.css';
 
 // Import all your screen components
 import HomeScreen from './components/home.jsx';
-import ProductScreen from './components/products.jsx';
 import CartScreen from './components/cartScreen.jsx';
 import LoginScreen from './components/login.jsx';
 import ProductsScreen from './components/products.jsx';
 import RegisterScreen from './components/register.jsx';
+import ProductDetailsScreen from './components/productDetails.jsx';
+import ProfileScreen from './components/profile.jsx';
+import ShippingScreen from './components/shipping.jsx';
+import PaymentScreen from './components/payment.jsx';
+import PlaceOrderScreen from './components/placeOrder.jsx';
+import OrderScreen from './components/order.jsx';
 
 // --- Define Routes ---
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index={true} path="/" element={<HomeScreen />} />
-      <Route path="/search/:keyword" element={<HomeScreen />} />
+      <Route index element={<HomeScreen />} />
+      <Route path="/search/:keyword" element={<ProductsScreen />} />
       <Route path="/products" element={<ProductsScreen />} />
-      <Route path="/product/:id" element={<ProductScreen />} />
+      <Route path="/product/:id" element={<ProductDetailsScreen />} />
       <Route path="/cart" element={<CartScreen />} />
       <Route path="/login" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
+      <Route path="/profile" element={<ProfileScreen />} />
+      <Route path="/shipping" element={<ShippingScreen />} />
+      <Route path="/payment" element={<PaymentScreen />} />
+      <Route path="/placeorder" element={<PlaceOrderScreen />} />
+      <Route path="/order/:id" element={<OrderScreen />} />
     </Route>
   )
 );

@@ -27,12 +27,21 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // 3. If user created successfully, send back user data and token
   if (user) {
+    const token = generateToken(user._id);
+
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    });
+
     res.status(201).json({
       _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: generateToken(user._id),
+      token,
     });
   } else {
     res.status(400);
@@ -53,12 +62,21 @@ const loginUser = asyncHandler(async (req, res) => {
 
   // 2. Check if user exists and password matches
   if (user && (await user.matchPassword(password))) {
+    const token = generateToken(user._id);
+
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    });
+
     res.json({
       _id: user._id,
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: generateToken(user._id),
+      token,
     });
   } else {
     res.status(401); // Unauthorized

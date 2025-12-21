@@ -6,9 +6,12 @@ import User from '../models/userModel.js'; // We'll create this next
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  // Read the JWT from the 'jwt' cookie
-  // We're using cookies, but you could also check req.headers.authorization
-  token = req.cookies.jwt;
+  // Prefer Authorization header (Bearer token), fallback to cookie
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
+    token = req.headers.authorization.split(' ')[1];
+  } else {
+    token = req.cookies?.jwt;
+  }
 
   if (token) {
     try {
@@ -16,7 +19,7 @@ const protect = asyncHandler(async (req, res, next) => {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
       // Find the user by ID from the token payload, exclude password
-      req.user = await User.findById(decoded.userId).select('-password');
+      req.user = await User.findById(decoded.id).select('-password');
 
       if (req.user) {
         next(); // User is found, proceed to the next middleware/controller

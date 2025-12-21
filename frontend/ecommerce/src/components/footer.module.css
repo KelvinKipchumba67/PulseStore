@@ -49,6 +49,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  grid-column: 1 / -1;
 }
 
 .copyright {
@@ -78,4 +79,54 @@
   background-color: #667eea;
   color: white;
   transform: translateY(-3px);
+}
+
+.newsletterText {
+  color: #bdc3c7;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.newsletterInput {
+  flex: 1;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ecf0f1;
+  padding: 0 12px;
+  outline: none;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(236, 240, 241, 0.65);
+}
+
+.newsletterInput:focus {
+  border-color: rgba(102, 126, 234, 0.7);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+.newsletterButton {
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.45);
+  background: rgba(102, 126, 234, 0.18);
+  color: #667eea;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.newsletterButton:hover {
+  transform: translateY(-1px);
+  background: rgba(102, 126, 234, 0.28);
 }
