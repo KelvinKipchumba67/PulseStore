@@ -24,7 +24,7 @@ Responsive Design: Fully optimized for desktop, tablet, and mobile devices using
 
 Admin Seeding: Scripts to automatically populate the database with sample data.
 
-Tech Stack
+Tech Stack;
 
 Frontend:
 
