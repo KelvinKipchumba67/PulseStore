@@ -114,7 +114,7 @@ npm run dev
 cd frontend
 npm run dev
 
-Open your browser to http://localhost:5173.
+Open your browser to http://localhost:5173
 
 API Documentation
 
